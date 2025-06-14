@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 namespace apka.Models
 {
     public class Kategoria
@@ -8,10 +9,12 @@ namespace apka.Models
         [Required]
         public string Nazwa { get; set; }
 
+        // DODANO: Domyślny konstruktor
+        public Kategoria() { }
+
         public Kategoria(string nazwa)
         {
             Nazwa = nazwa;
         }
     }
-
 }

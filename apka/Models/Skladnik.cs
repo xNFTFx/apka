@@ -9,9 +9,12 @@ namespace apka.Models
         [Required]
         public string Nazwa { get; set; }
 
-        public Skladnik(string nazwa) {
-            Nazwa = nazwa;
+        // DODANO: Domyślny konstruktor
+        public Skladnik() { }
 
+        public Skladnik(string nazwa)
+        {
+            Nazwa = nazwa;
         }
     }
 }
