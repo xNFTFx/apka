@@ -7,29 +7,31 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace apka.Controllers
 {
+    public class ZamowieniaViewController : Controller 
+    {
 
-    public class ZamowieniaController : Controller
-        {
             public ActionResult Kiosk()
             {
                 ViewBag.ActiveTab = "Kawa";
-                // Jeśli widok jest w niestandardowym folderze ZamowieniaView, podaj pełną ścieżkę:
-                return View("~/Views/ZamowieniaView/Kiosk.cshtml");
+                return View();
             }
 
             public ActionResult Kiosk2()
             {
                 ViewBag.ActiveTab = "Herbata";
-                return View("~/Views/ZamowieniaView/Kiosk2.cshtml");
+                return View();
             }
 
             public ActionResult Kiosk3()
             {
                 ViewBag.ActiveTab = "Ciasta";
-                return View("~/Views/ZamowieniaView/Kiosk3.cshtml");
+                return View();
+            }
+
+            public ActionResult Zamowienie()
+            {
+                return View();
             }
         }
     }
-
-
 
