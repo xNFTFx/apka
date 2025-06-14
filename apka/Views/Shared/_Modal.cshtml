@@ -1,0 +1,23 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius: 15px;">
+            <div class="modal-header" style="background-color: #735438; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <h5 class="modal-title text-white" id="modalLabel">Dodaj do zamówienia</h5>
+                <button type="button" class="btn close text-white" onclick="$('#addModal').modal('hide')" style="font-size: 1.5rem;">×</button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Produkt "<span id="productName"></span>"</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 1rem;">
+                    <button class="btn btn-secondary" onclick="changeQuantity(-1)">−</button>
+                    <span id="quantityDisplay" style="font-size: 1.5rem;">1</span>
+                    <button class="btn btn-secondary" onclick="changeQuantity(1)">+</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" style="background-color: #FAB7CF; color: #000;" onclick="$('#addModal').modal('hide')">Dodaj</button>
+                <a href="/ZamowieniaView/Zamowienie" class="btn" style="background-color: #735438; color: #FFFCF5;">Dodaj i zapłać</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,53 +1,94 @@
-﻿
-
-@{
-    Layout = "~/Views/Shared/AdminLayout.cshtml";
-    ViewBag.Title = "Zamówienia";
+﻿@{
+    Layout = "~/Views/Shared/_CrudLayout.cshtml";
+    ViewBag.Title = "CRUD Panel";
 }
 
-<h2>Lista zamówień</h2>
+<style>
+    .crud-section {
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
 
-@{
-    var zamowienia = new[]
-    {
-        new {
-            Id = 101,
-            Produkty = new[] {
-                new { Nazwa = "Latte Macchiato", Ilosc = 2, Cena = 18.99 },
-                new { Nazwa = "Espresso", Ilosc = 1, Cena = 9.99 }
-            }
-        },
-        new {
-            Id = 102,
-            Produkty = new[] {
-                new { Nazwa = "Cappuccino", Ilosc = 3, Cena = 14.50 },
-                new { Nazwa = "Espresso", Ilosc = 2, Cena = 9.99 }
-            }
+        .crud-section h2 {
+            margin-bottom: 15px;
         }
-    };
-}
 
-@foreach (var zamowienie in zamowienia)
-{
-    var lacznaCena = zamowienie.Produkty.Sum(p => p.Ilosc * p.Cena);
-    <div class="order-card">
-        <div class="order-actions">
-            <button class="btn-gotowy">Gotowy</button>
-            <button class="btn-wydany">Wydany</button>
-            <button class="btn-anulowane">Anulowane</button>
-        </div>
-        <div class="order-details">
-            <div class="order-id">ZAMÓWIENIE #@zamowienie.Id</div>
-            @foreach (var produkt in zamowienie.Produkty)
-            {
-                <div class="product-line">
-                    <span>@produkt.Nazwa (x@produkt.Ilosc)</span>
-                    <span>@String.Format("{0:C}", produkt.Ilosc * produkt.Cena)</span>
-                </div>
-            }
-            <div class="total-price">
-                Łącznie: @String.Format("{0:C}", lacznaCena)
-            </div>
-        </div>
+    .crud-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+        .crud-buttons a {
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+    .btn-nowy {
+        background-color: #FF8FBF;
+    }
+
+    .btn-detale {
+        background-color: #DA7F9B;
+    }
+
+    .btn-edytuj {
+        background-color: #DA7F9B;
+    }
+
+    .btn-usun {
+        background-color: #735438;
+    }
+
+    .crud-buttons a:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<div class="crud-section">
+    <h2>Produkty</h2>
+    <div class="crud-buttons">
+        <a class="btn-nowy" href="@Url.Action("Create", "Produkts")">Nowy</a>
+        <a class="btn-detale" href="@Url.Action("Details", "Produkts", new { id = 1 })">Detale</a>
+        <a class="btn-edytuj" href="@Url.Action("Edit", "Produkts", new { id = 1 })">Edytuj</a>
+        <a class="btn-usun" href="@Url.Action("Delete", "Produkts", new { id = 1 })">Usuń</a>
     </div>
-}
+</div>
+
+<div class="crud-section">
+    <h2>Składniki</h2>
+    <div class="crud-buttons">
+        <a class="btn-nowy" href="@Url.Action("Create", "Skladniks")">Nowy</a>
+        <a class="btn-detale" href="@Url.Action("Details", "Skladniks", new { id = 1 })">Detale</a>
+        <a class="btn-edytuj" href="@Url.Action("Edit", "Skladniks", new { id = 1 })">Edytuj</a>
+        <a class="btn-usun" href="@Url.Action("Delete", "Skladniks", new { id = 1 })">Usuń</a>
+    </div>
+</div>
+
+<div class="crud-section">
+    <h2>Kategorie</h2>
+    <div class="crud-buttons">
+        <a class="btn-nowy" href="@Url.Action("Create", "Kategorias")">Nowy</a>
+        <a class="btn-detale" href="@Url.Action("Details", "Kategorias", new { id = 1 })">Detale</a>
+        <a class="btn-edytuj" href="@Url.Action("Edit", "Kategorias", new { id = 1 })">Edytuj</a>
+        <a class="btn-usun" href="@Url.Action("Delete", "Kategorias", new { id = 1 })">Usuń</a>
+    </div>
+</div>
+
+
+<div class="crud-section">
+    <h2>Autorzy</h2>
+    <div class="crud-buttons">
+        <a class="btn-nowy" href="@Url.Action("Create", "Autorzys")">Nowy</a>
+        <a class="btn-detale" href="@Url.Action("Details", "Autorzys", new { id = 1 })">Detale</a>
+        <a class="btn-edytuj" href="@Url.Action("Edit", "Autorzys", new { id = 1 })">Edytuj</a>
+        <a class="btn-usun" href="@Url.Action("Delete", "Autorzys", new { id = 1 })">Usuń</a>
+    </div>
+</div>
