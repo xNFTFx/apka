@@ -12,8 +12,6 @@ namespace apka.Models
         {
             Nazwa = nazwa;
         }
-
-        public Kategoria() { } // Default constructor for EF Core
     }
 
 }

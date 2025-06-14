@@ -11,5 +11,6 @@ namespace apka.Models
         public DbSet<Kategoria> Kategorie { get; set; }
         public DbSet<Poziom> Poziomy { get; set; }
         public DbSet<Autor> Autorzy { get; set; }
+        public DbSet<Skladnik> Skladnik { get; set; }
     }
 }
