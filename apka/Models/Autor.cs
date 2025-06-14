@@ -1,4 +1,5 @@
-﻿namespace apka.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace apka.Models
 {
     public class Autor
     {
