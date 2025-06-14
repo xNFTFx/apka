@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Views/Shared/_CrudLayout.cshtml";
+    ViewBag.Title = "CRUD Panel";
+}
+
+<style>
+    .crud-section {
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+
+        .crud-section h2 {
+            margin-bottom: 15px;
+        }
+
+    .crud-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+        .crud-buttons a {
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+    .btn-nowy {
+        background-color: #FF8FBF;
+    }
+
+    .btn-detale {
+        background-color: #DA7F9B;
+    }
+
+    .btn-edytuj {
+        background-color: #DA7F9B;
+    }
+
+    .btn-usun {
+        background-color: #735438;
+    }
+
+    .crud-buttons a:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<div class="crud-section">
+    <h2>Produkty</h2>
+    <div class="crud-buttons">
+        <a class="btn-nowy" href="@Url.Action("Create", "Produkts")">Nowy</a>
+        <a class="btn-detale" href="@Url.Action("Details", "Produkts", new { id = 1 })">Detale</a>
+        <a class="btn-edytuj" href="@Url.Action("Edit", "Produkts", new { id = 1 })">Edytuj</a>
+        <a class="btn-usun" href="@Url.Action("Delete", "Produkts", new { id = 1 })">Usuń</a>
+    </div>
+</div>
+
+<div class="crud-section">
+    <h2>Składniki</h2>
+    <div class="crud-buttons">
+        <a class="btn-nowy" href="@Url.Action("Create", "Skladniks")">Nowy</a>
+        <a class="btn-detale" href="@Url.Action("Details", "Skladniks", new { id = 1 })">Detale</a>
+        <a class="btn-edytuj" href="@Url.Action("Edit", "Skladniks", new { id = 1 })">Edytuj</a>
+        <a class="btn-usun" href="@Url.Action("Delete", "Skladniks", new { id = 1 })">Usuń</a>
+    </div>
+</div>
+
+<div class="crud-section">
+    <h2>Kategorie</h2>
+    <div class="crud-buttons">
+        <a class="btn-nowy" href="@Url.Action("Create", "Kategorias")">Nowy</a>
+        <a class="btn-detale" href="@Url.Action("Details", "Kategorias", new { id = 1 })">Detale</a>
+        <a class="btn-edytuj" href="@Url.Action("Edit", "Kategorias", new { id = 1 })">Edytuj</a>
+        <a class="btn-usun" href="@Url.Action("Delete", "Kategorias", new { id = 1 })">Usuń</a>
+    </div>
+</div>

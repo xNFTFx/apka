@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - CRUD Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/1edc22dcad.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lexend Deca', sans-serif;
+            background-color: #F5F5F5;
+            color: #735438;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #735438;
+            padding: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        header > span {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .btn-home, .btn-admin {
+            background-color: #FAB7CF;
+            color: black;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-home:hover, .btn-admin:hover {
+                background-color: #ff8fbf;
+            }
+
+        .crud-content {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-buttons">
+            <a href="@Url.Action("Kiosk", "ZamowieniaView")" class="btn-home" title="Strona główna">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="@Url.Action("Admin", "Administrator")" class="btn-admin" title="Zarządzaj danymi">
+                <i class="fa-solid fa-file"></i>
+            </a>
+        </div>
+        <span>Panel Administratora</span>
+    </header>
+
+    <div class="crud-content">
+        @RenderBody()
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
