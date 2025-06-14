@@ -198,17 +198,8 @@
                 font-size: 1.2rem;
             }
 
-            .difficulty-badge {
-                position: absolute;
-                top: 0;
-                right: 0;
-                background-color: #f89fc6;
-                color: #000;
-                padding: 4px 10px;
-                border-top-right-radius: 12px;
-                border-bottom-left-radius: 12px;
-                font-size: 0.9rem;
-                font-weight: bold;
+            .price {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -220,7 +211,9 @@
             <h1>BallerinaCappucina Coffeehouse</h1>
         </div>
 
-       
+        <button class="btn-cart" aria-label="Przejdź do zamówienia" onclick="location.href='@Url.Action("Zamowienie", "ZamowieniaView")'">
+            <i class="fa-regular fa-credit-card"></i>
+        </button>
     </header>
 
     <div class="container-fluid p-0">

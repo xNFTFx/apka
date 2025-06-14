@@ -5,10 +5,10 @@ using System.Web;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace apka.Controllers
+namespace bc.Controllers
 {
 
-    public class ZamowieniaController : Controller
+        public class ZamowieniaController : Controller
         {
             public ActionResult Kiosk()
             {

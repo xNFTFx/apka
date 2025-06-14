@@ -17,21 +17,13 @@
             <div class="col-md-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="card-title m-0">Zielona Herbata</h5>
-                            <h6 class="m-0" style="color: #f89fc6; font-weight: 600;">Łatwy</h6>
-                        </div>
-
+                        <h5 class="card-title">Zielona Herbata</h5>
                         <p class="card-text">Delikatna i aromatyczna</p>
-                        <div class="position-relative">
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price text-dark fw-bold">9,00 zł</span>
+                            <button class="btn btn-primary btn-add" onclick="openModal('Zielona Herbata')">Dodaj</button>
 
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="author text-dark fw-bold">Zdzisio Gdzisio</span>
-                                <button class="btn btn-primary btn-add" onclick="openModal('Cappuccino')">Składniki</button>
-
-                            </div>
                         </div>
-
                     </div>
             </div>
         </div>
@@ -39,52 +31,24 @@
 </div>
     </div>
 
-<<!-- Modal tutaj, w tym samym pliku -->
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Składniki</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
-            </div>
-
-            <div class="modal-body">
-                <h6 id="productName" style="color:#000;"></h6>
-                <ul id="ingredientsList" style="color: #f89fc6;"></ul>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" style="background-color: #5e422b; color: #FFFCF5; border: none;" data-bs-dismiss="modal">Zamknij</button>
-            </div>
-
-        </div>
-    </div>
-</div>
+@Html.Partial("_Modal")
 
 @section scripts {
-    <script>
-        const products = {
-            "Cappuccino": ["Espresso", "Spienione mleko", "Cynamon"],
-            "Espresso": ["Zmielona kawa", "Woda"],
-            "Latte": ["Espresso", "Ciepłe mleko", "Mleczna pianka"]
-        };
+<script>
+    let currentQuantity = 1;
 
-        function openModal(productName) {
-            document.getElementById('productName').innerText = productName;
+    function openModal(productName) {
+        currentQuantity = 1;
+        document.getElementById('productName').innerText = productName;
+        document.getElementById('quantityDisplay').innerText = currentQuantity;
+        $('#addModal').modal('show');
+    }
 
-            const ingredients = products[productName] || ["Brak informacji o składnikach"];
-            const listElement = document.getElementById('ingredientsList');
-            listElement.innerHTML = "";
-
-            ingredients.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = item;
-                listElement.appendChild(li);
-            });
-
-            const modal = new bootstrap.Modal(document.getElementById('addModal'));
-            modal.show();
-        }
-    </script>
+    function changeQuantity(change) {
+        currentQuantity += change;
+        if (currentQuantity < 1) currentQuantity = 1;
+        document.getElementById('quantityDisplay').innerText = currentQuantity;
+    }
+</script>
 }
+
