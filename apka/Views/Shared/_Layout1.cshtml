@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - BallerinaCappucina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Twoje style -->
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Modernizr (jeśli masz) -->
+    <script src="~/js/modernizr.js"></script>
+
+    <style>
+        body {
+            background-color: #FFFCF5;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+
+        @@media (max-width: 768px) {
+            header img {
+                max-width: 120px;
+            }
+        }
+
+        .container-fluid {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #FFFCF5;">
+        <a href="@Url.Action("Kiosk", "ZamowieniaView")">
+            <img src="~/images/BallerinaLogo.png" alt="BallerinaCappucina Logo" style="max-width: 350px; height: auto; cursor: pointer;" />
+        </a>
+    </div>
+
+    <div class="container-fluid p-0">
+        @RenderBody()
+    </div>
+
+    <!-- Skrypty JS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
