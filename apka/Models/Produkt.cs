@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema; // Upewnij się, że to jest!
 
 namespace apka.Models
 {
@@ -11,6 +11,8 @@ namespace apka.Models
         public string Nazwa { get; set; }
         [Required]
         public string Opis { get; set; }
+
+        // Klucze obce
         [ForeignKey("Kategoria")]
         public int IdKategoria { get; set; }
         [ForeignKey("Poziom")]
@@ -20,11 +22,20 @@ namespace apka.Models
         [ForeignKey("Skladnik")]
         public int IdSkladnik { get; set; }
 
+        // Właściwości nawigacyjne
+        public virtual Kategoria Kategoria { get; set; }
+        public virtual Poziom Poziom { get; set; }
+        public virtual Autor Autor { get; set; }
+        public virtual Skladnik Skladnik { get; set; }
+
+        // Domyślny konstruktor
+        public Produkt() { }
+
+        // Konstruktor z parametrami
         public Produkt(string nazwa, string opis)
         {
             Nazwa = nazwa;
             Opis = opis;
-
         }
     }
 }
